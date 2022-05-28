@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Subject;
 use App\Services\StudentService;
 
 class IndexController extends Controller
@@ -18,7 +19,10 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         $students = Student::with('subjects')->orderBy('created_at', 'DESC')->get();
+        $subjects = Subject::orderBy('created_at', 'DESC')->get();
         return view('student.index')
-                ->with('students', $students);
+                ->with('students', $students)
+                ->with('subjects',$subjects);
+        
     }
 }

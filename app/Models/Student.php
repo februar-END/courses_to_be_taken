@@ -9,11 +9,12 @@ class Student extends Model
 {
     use HasFactory;
 
+    
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class,'student_subject')
-        ->using(StudentSubject::class)
-        ->withPivot('score');
+        return $this->belongsToMany('App\Models\Subject')
+        ->withPivot('score')
+        ->withTimestamps();
     }
 }

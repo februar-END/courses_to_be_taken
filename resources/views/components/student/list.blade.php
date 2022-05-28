@@ -1,7 +1,3 @@
-@props([
-    'students' => []
-])
-
 <div class="bg-white rounded-md shadow-lg mt-5 mb-5">
 <ul>
     @foreach($students as $student)

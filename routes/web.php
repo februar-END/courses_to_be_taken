@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/student',App\Http\Controllers\Student\IndexController::class)->name('student.index');
 
+Route::post('/student/create', \App\Http\Controllers\Student\CreateController::class)->name('student.create');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
